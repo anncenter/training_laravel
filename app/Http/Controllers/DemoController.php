@@ -9,7 +9,7 @@ class DemoController extends Controller
     //
      public function index()
     {
-        return "Method GET: Index";
+        return "Method GET: Index Test";
     }
 
     public function demotwo()

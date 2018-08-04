@@ -26,4 +26,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function shop()
+    {
+        //join one-to-one between shop and user table
+        return $this->hasOne('App\Model\Shop');
+    }
 }
