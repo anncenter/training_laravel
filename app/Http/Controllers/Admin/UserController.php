@@ -30,7 +30,7 @@ class UserController extends Controller
         $count = UserMod::where('active', 1)->count();
         echo "Total Rows :".$count;
         
-        return view('template')
+        return view('test')
                 ->with('name', 'Ann')
                 ->with('surname', 'Center')
                 ->with('email', 'anncenter@gmail.com');
@@ -40,7 +40,7 @@ class UserController extends Controller
             'surname' => 'Center',
             'email' => 'anncenter@gmail.com'
         ];
-        //return view('template', $data);
+        //return view('test', $data);
         $item = [
             'item1' => 'My Value1',
             'item2' => 'My Value2'
@@ -51,8 +51,8 @@ class UserController extends Controller
             'item' => $item
         ];
 
-        return view('template', $results);      
-        */
+        return view('test', $results);      
+        
 
         $data = [
            'name' => 'My Name',
@@ -63,8 +63,12 @@ class UserController extends Controller
         $user = UserMod::find(1);
         $mods = UserMod::all();
 
-        return view('template', compact('data', 'user', 'mods'));
+        return view('test', compact('data', 'user', 'mods'));
+        */
+        $mods = UserMod::paginate(10);
+        return view('admin.user.lists', compact('mods') );
 
+        //return view('admin.user.lists');
     }
 
     /**
